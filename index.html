@@ -1,3 +1,63 @@
 <html>
-    <h1>words</h1>
+    <head>
+        <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <h1>Stir Fryday</h1>
+
+    <div ng-app="StirFryApp" ng-controller="MainController">
+        <!--<div ng-view=""/>-->
+
+        <div ng-controller ="RecipeController">
+            <div ng-show ="Sides">
+                <input type ="button" ng-click="pickSide('Noodles')" value = "Noodles"/>
+                <input type ="button" ng-click="pickSide('Rice')" value = "Rice"/>
+            </div>
+             <div ng-show ="Veggies">
+                <input type ="checkbox" ng-model="vegetables.RedPeppers.value">Red Peppers </input>
+                <input type ="checkbox" ng-model="vegetables.Carrots.value">Carrots </input>
+                <input type ="checkbox" ng-model="vegetables.Cabbage.value">Cabbage </input>
+                <input type ="checkbox" ng-model="vegetables.Chillis.value">Chillis </input>
+                <input type ="checkbox" ng-model="vegetables.Onions.value">Onions </input>
+                <input type ="checkbox" ng-model="vegetables.SnowPeas.value">Snow Peas</input>
+                <input type ="checkbox" ng-model="vegetables.BeanSprouts.value" >Bean Sprouts </input>
+                <input type ="checkbox" ng-model="vegetables.BokChoi.value">Bok Choi </input>
+                <input type ="checkbox" ng-model="vegetables.Broccoli.value">Broccoli </input>
+                <input type ="checkbox" ng-model="vegetables.BabyCorn.value">Baby Corn </input>
+                <input type ="checkbox" ng-model="vegetables.GreenBean.value">Green Beans </input>
+                <input type ="button"  ng-click="setVeggies()" value = "Submit"/>
+            </div>
+             <div ng-show ="Meat">
+                 <input type ="button" ng-click="pickMeat('Beef')" value = "Beef"/>
+                <input type ="button" ng-click="pickMeat('Chicken')" value = "Chicken"/>
+                <input type ="button" ng-click="pickMeat('Pork')" value = "Pork"/>
+                <input type ="button" ng-click="pickMeat('Shrimp')" value = "Shrimp"/>
+                <input type ="button" ng-click="pickMeat('Tofu')" value = "Tofu"/>
+                <input type ="button" ng-click="pickMeat('No Meat')" value = "No Meat"/>
+            </div>
+            <div ng-show ="Sauce">
+                 <input type ="button" ng-click="pickSauce('Basic Sauce')" value = "Basic Stir Fry Sauce"/>
+                 <input type ="button" ng-click="pickSauce('Curry Sauce')" value = "Curry Sauce"/>
+                 <input type ="button" ng-click="pickSauce('Orange Ginger Sauce')" value = "Orange-Ginger Sauce"/>
+                 <input type ="button" ng-click="pickSauce('Black Pepper')" value = "Black Pepper Sauce"/>
+                 <input type ="button" ng-click="pickSauce('Sweet Sour')" value = "Sweet & Sour Sauce"/>
+                 <input type ="button" ng-click="customSauce()" value = "Custom Sauce"/>
+                 <input type ="button" ng-click="recommendSauce()" value = "Recommend a Sauce"/>
+            </div>
+             <div ng-show ="Review">
+                 <h4> Review your recipe</h4>
+                 <label> Side: {{side}} </label><br/>
+                 <label> Meat: {{meat}} </label><br/>
+                 <label> Sauce: {{sauce}} </label><br/>
+                 <label> Vegetables: </label></br>
+                 <div ng-repeat="veg in vegetables">
+                     <label ng-if="veg.value == true"> {{veg.name}}</br> </label>
+                </div>
+                <input type ="button" ng-click="saveRecipe()" value = "Save Recipe"/>
+                <input type ="button" ng-click="searchRecipes()" value = "Search Similar Recipes using ingredients"/>
+            </div>
+        </div>
+    </div>
+
 </html>
