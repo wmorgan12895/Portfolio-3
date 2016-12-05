@@ -1,0 +1,19 @@
+#recipe {
+    width:50%;
+    height:70%;
+    margin: auto;
+    margin-top : 35px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    padding :10px;
+}
+
+#meats {
+    height: 100%;
+    width:100%;
+    
+}
+td {
+    width :80px;
+}

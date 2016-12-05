@@ -2,39 +2,61 @@
     <head>
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
         <script src="app.js"></script>
     </head>
     <h1>Stir Fryday</h1>
 
     <div ng-app="StirFryApp" ng-controller="MainController">
+        <input type ="button" value="Create a new recipe"/>
         <!--<div ng-view=""/>-->
 
-        <div ng-controller ="RecipeController">
-            <div ng-show ="Sides">
-                <input type ="button" ng-click="pickSide('Noodles')" value = "Noodles"/>
-                <input type ="button" ng-click="pickSide('Rice')" value = "Rice"/>
+        <div id = "Recipe" ng-controller ="RecipeController">
+            <div ng-show ="Sides" id="sidesDiv">
+                <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/noodles-96.png" title="Noodles" width="96" ng-click="pickSide('Noodles')">
+                <h4>Noodles</h4>
+                <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/rice_bowl-96.png" title="Rice Bowl" width="96" ng-click="pickSide('Rice')">
+                <h4>Rice</h4>
             </div>
              <div ng-show ="Veggies">
-                <input type ="checkbox" ng-model="vegetables.RedPeppers.value">Red Peppers </input>
-                <input type ="checkbox" ng-model="vegetables.Carrots.value">Carrots </input>
+                <!--<input type ="checkbox" ng-model="vegetables.RedPeppers.value">Red Peppers </input><br/>-->
+                <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/carrot-96.png" title="Carrot" width="96">
+                <input type ="checkbox" ng-model="vegetables.Carrots.value">Carrots </input><br/>
+                <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/cabbage-96.png" title="Cabbage" width="96">
                 <input type ="checkbox" ng-model="vegetables.Cabbage.value">Cabbage </input>
-                <input type ="checkbox" ng-model="vegetables.Chillis.value">Chillis </input>
+                <img src="https://maxcdn.icons8.com/Color/PNG/96/Cultures/chili_pepper-96.png" title="Chili Pepper" width="96">
+                <input type ="checkbox" ng-model="vegetables.Chillis.value">Chillis </input><br/>
+                <img src="https://maxcdn.icons8.com/Color/PNG/96/Plants/onion-96.png" title="Onion" width="96">
                 <input type ="checkbox" ng-model="vegetables.Onions.value">Onions </input>
-                <input type ="checkbox" ng-model="vegetables.SnowPeas.value">Snow Peas</input>
-                <input type ="checkbox" ng-model="vegetables.BeanSprouts.value" >Bean Sprouts </input>
-                <input type ="checkbox" ng-model="vegetables.BokChoi.value">Bok Choi </input>
+                <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/peas-96.png" title="Peas" width="96">
+                <input type ="checkbox" ng-model="vegetables.SnowPeas.value">Snow Peas</input><br/>
+                <!--<input type ="checkbox" ng-model="vegetables.BeanSprouts.value" >Bean Sprouts </input>-->
+                <!--<input type ="checkbox" ng-model="vegetables.BokChoi.value">Bok Choi </input><br/>-->
+                <img src="https://maxcdn.icons8.com/Color/PNG/96/Plants/broccoli-96.png" title="Broccoli" width="96">
                 <input type ="checkbox" ng-model="vegetables.Broccoli.value">Broccoli </input>
-                <input type ="checkbox" ng-model="vegetables.BabyCorn.value">Baby Corn </input>
-                <input type ="checkbox" ng-model="vegetables.GreenBean.value">Green Beans </input>
+                <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/corn-96.png" title="Corn" width="96">
+                <input type ="checkbox" ng-model="vegetables.BabyCorn.value">Baby Corn </input><br/>
+                <!--<input type ="checkbox" ng-model="vegetables.GreenBean.value">Green Beans </input>-->
                 <input type ="button"  ng-click="setVeggies()" value = "Submit"/>
             </div>
              <div ng-show ="Meat">
-                 <input type ="button" ng-click="pickMeat('Beef')" value = "Beef"/>
-                <input type ="button" ng-click="pickMeat('Chicken')" value = "Chicken"/>
-                <input type ="button" ng-click="pickMeat('Pork')" value = "Pork"/>
-                <input type ="button" ng-click="pickMeat('Shrimp')" value = "Shrimp"/>
-                <input type ="button" ng-click="pickMeat('Tofu')" value = "Tofu"/>
-                <input type ="button" ng-click="pickMeat('No Meat')" value = "No Meat"/>
+                <table id ="Meats">
+                <tr>
+                    <td><img src="https://maxcdn.icons8.com/Color/PNG/96/Animals/cow-96.png"  align="middle" ng-click="pickMeat('Beef')" title="Cow" width="120"></td>
+                    <td><img src="https://maxcdn.icons8.com/Color/PNG/96/Animals/chicken-96.png" align="middle" ng-click="pickMeat('Chicken')" title="Chicken" width="120"></td>
+                   <tr> <td><h4 align="middle">Beef</h4></td><td><h4 align="center">Chicken</h4></td> </tr>
+                 </tr>
+                 <tr>
+                   <td> <img src="https://maxcdn.icons8.com/Color/PNG/96/Animals/pig-96.png" align="middle" ng-click="pickMeat('Pork')" title="Pig" width="120"> </td>
+                    <td><img src="https://maxcdn.icons8.com/Color/PNG/96/Animals/prawn-96.png" align="middle" ng-click="pickMeat('Shrimp')" title="Prawn" width=""></td>
+                    <tr><td><h4 align="center">Pork</h4></td><td><h4 align="center">Shrimp</h4></td></tr>
+                </tr>
+                <tr>
+                    <td><img src="https://maxcdn.icons8.com/Color/PNG/96/Plants/soy-96.png" align="middle" ng-click="pickMeat('Tofu')" title="Soy" width="120"></td>
+                    <td><img src="https://maxcdn.icons8.com/Color/PNG/96/Food/vegan_food-96.png"  align="middle" ng-click="pickMeat('No Meat')" title="Vegan Food" width="120"></td>
+                   <tr> <td><h4 align="center">Tofu</h4></td> <td><h4 align="center">No Meat</h4></td> </tr>
+                </tr>
+                </table>
             </div>
             <div ng-show ="Sauce">
                  <input type ="button" ng-click="pickSauce('Basic Sauce')" value = "Basic Stir Fry Sauce"/>
