@@ -1,19 +1,88 @@
 #recipe {
-    width:50%;
-    height:70%;
     margin: auto;
     margin-top : 35px;
     border-color: black;
     border-width: 3px;
     border-style: solid;
-    padding :10px;
-}
-
-#meats {
-    height: 100%;
-    width:100%;
     
 }
-td {
-    width :80px;
+
+#sidesDiv{
+    margin:auto;
+    width:50%;
 }
+
+#noodles {
+    background-image: url("https://c2.staticflickr.com/8/7451/8941086988_c7d5ca6cd5_b.jpg");
+    width: 49%;
+    height: 250px;
+    background-size: cover;
+    display: inline-block;
+}
+
+#rice {
+    background-image: url("http://il5.picdn.net/shutterstock/videos/4080766/thumb/1.jpg");
+    width: 49%;
+    height: 250px;
+    background-size: cover;
+    display: inline-block;
+}
+
+#carrots {
+    background-image: url("http://wallpapersdsc.net/wp-content/uploads/2016/09/Carrots-Pictures.jpg");
+    background-size: cover;
+}
+#redpeppers {
+    background-image: url("http://kristensraw.com/blog/wp-content/uploads/2014/04/Red-peppers.jpg");
+    background-size: cover;
+}
+#cabbage {
+    background-image: url("http://il3.picdn.net/shutterstock/videos/3316988/thumb/1.jpg");
+    background-size: cover;
+}
+#chillies {
+    background-image: url("http://2.bp.blogspot.com/-anC7m5JaPlo/VJgYnk1LRZI/AAAAAAAAGbc/khVkV91ILH8/s1600/wxp%2B(4).jpg");
+    background-size: cover;
+}
+#onions {
+    background-image: url("http://hnzyzb.com/data/out/11/44352665-onion-wallpapers.jpg");
+    background-size: cover;
+}
+#snowpeas {
+    background-image: url("http://affordableorganics.com.au/wp-content/uploads/snow-peas.jpg");
+    background-size: cover;
+}
+#bokchoi {
+    background-image: url("http://www.rebootwithjoe.com/wp-content/uploads/2012/05/bok-choy92248524.jpg");
+    background-size: cover;
+}
+#brocolli {
+    background-image: url("http://www.cravebits.com/wp-content/uploads/2014/12/Redzel-Fresh-Broccoli.jpg");
+    background-size: cover;
+}
+#greenbeans {
+    background-image: url("http://aroundtheplate.org/wp-content/uploads/2013/05/greenbeans.jpg");
+    background-size: cover;
+}
+
+.VeggieDivs{
+    width: 32%;
+    height: 100px;
+    padding: 1px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ButtonTextLight {
+    color: White;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 50px;
+}
+.ButtonTextDark {
+    color: Black;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 50px;
+}
+
