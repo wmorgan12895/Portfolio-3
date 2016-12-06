@@ -22,10 +22,58 @@ app.controller('RecipeController', function($scope){
 
     }
 
+    $scope.goBack = function(){
+        if($scope.Veggies) {
+            $scope.Veggies = false;
+            $scope.Sides = true;
+        }
+        else if($scope.Meat) {
+            $scope.Meat = false;
+            $scope.Veggies = true;
+        }
+        else if($scope.Sauce) {
+            $scope.Sauce = false;
+            $scope.Meat = true;
+        }
+        else if($scope.Review) {
+            $scope.Review = false;
+            $scope.Sauce = true;
+        }
+    }
+
+    $scope.newRecipe = function(){
+        $scope.vegetables['RedPeppers'].value = false;
+        $scope.vegetables['Carrots'].value = false;
+        $scope.vegetables['Cabbage'].value = false;
+        $scope.vegetables['Chillis'].value = false;
+        $scope.vegetables['Onions'].value = false;
+        $scope.vegetables['SnowPeas'].value = false;
+        $scope.vegetables['BeanSprouts'].value = false;
+        $scope.vegetables['BokChoi'].value = false;
+        $scope.vegetables['Broccoli'].value = false;
+        $scope.vegetables['BabyCorn'].value = false;
+        $scope.vegetables['GreenBeans'].value = false;
+
+        $scope.Sides=true
+        $scope.Veggies=false
+        $scope.Meat= false
+        $scope.Sauce= false
+        $scope.Review = false
+    }
+
     $scope.pickSide = function(side){
         $scope.side = side
         $scope.Veggies = true
         $scope.Sides = false
+    }
+
+    $scope.pickVeggie = function(veggie){
+        if($scope.vegetables[veggie].value == false) {
+            $scope.vegetables[veggie].value = true;
+        }
+        else {
+             $scope.vegetables[veggie].value = false;
+        }
     }
 
      $scope.setVeggies = function(){
@@ -46,5 +94,6 @@ app.controller('RecipeController', function($scope){
     }
 
 })
-
-app.controller('MainController', function($scope){})
+app.controller('MainController', function($scope){
+    
+})
