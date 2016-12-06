@@ -2,49 +2,37 @@
     <head>
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
         <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css"/>
         <script src="app.js"></script>
     </head>
     <h1>Stir Fryday</h1>
 
     <div ng-app="StirFryApp" ng-controller="MainController">
-        <input type ="button" value="Create a new recipe"/>
+        
         <!--<div ng-view=""/>-->
 
         <div id = "Recipe" ng-controller ="RecipeController">
+            <input type ="button" value="Create a new recipe" ng-click="newRecipe()"/>
             <div ng-show ="Sides" id="sidesDiv">
                 <div id="noodles" ng-click="pickSide('Noodles')"><h1 class="ButtonTextLight">Noodles</h1></div>
                 <div id="rice" ng-click="pickSide('Rice')"> <h1 class="ButtonTextDark">Rice</h1></div>
             </div>
-             <div ng-show ="Veggies" id="sidesDiv">
-                <!--<input type ="checkbox" ng-model="vegetables.RedPeppers.value">Red Peppers </input><br/>-->
+             <div ng-show ="Veggies" id="veggiesDiv">
                 
-                <div id="cabbage" class="VeggieDivs"><h2 class="ButtonTextLight">Cabbage</h2></div>
-                <div id="chillies" class="VeggieDivs"><h2 class="ButtonTextLight">Chillies</h2></div>
-                <div id="snowpeas" class="VeggieDivs"><h2 class="ButtonTextLight">Snow Peas</h2></div>
-                 <div id="onions" class="VeggieDivs"><h2 class="ButtonTextLight">Onions</h2></div>
-                <div id="bokchoi" class="VeggieDivs"><h2 class="ButtonTextLight">Bok Choi</h2></div>
-                <div id="redpeppers" class="VeggieDivs"><h2 class="ButtonTextLight">Red Peppers </h2></div>
-                <div id="brocolli" class="VeggieDivs"><h2 class="ButtonTextLight">Broccoli</h2></div>
-                <div id="carrots" class="VeggieDivs"><h2 class="ButtonTextLight">Carrots</h2></div>
-                <div id="greenbeans" class="VeggieDivs"><h2 class="ButtonTextLight">Green Beans</h2></div>
-                <!--<img src="https://maxcdn.icons8.com/Color/PNG/96/Food/carrot-96.png" title="Carrot" width="96">
-                <input type ="checkbox" ng-model="vegetables.Carrots.value">Carrots </input><br/>
-                <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/cabbage-96.png" title="Cabbage" width="96">
-                <input type ="checkbox" ng-model="vegetables.Cabbage.value">Cabbage </input>
-                <img src="https://maxcdn.icons8.com/Color/PNG/96/Cultures/chili_pepper-96.png" title="Chili Pepper" width="96">
-                <input type ="checkbox" ng-model="vegetables.Chillis.value">Chillis </input><br/>
-                <img src="https://maxcdn.icons8.com/Color/PNG/96/Plants/onion-96.png" title="Onion" width="96">
-                <input type ="checkbox" ng-model="vegetables.Onions.value">Onions </input>
-                <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/peas-96.png" title="Peas" width="96">
-                <input type ="checkbox" ng-model="vegetables.SnowPeas.value">Snow Peas</input><br/>
-                <!--<input type ="checkbox" ng-model="vegetables.BeanSprouts.value" >Bean Sprouts </input>-->
-                <!--<input type ="checkbox" ng-model="vegetables.BokChoi.value">Bok Choi </input><br/>
-                <img src="https://maxcdn.icons8.com/Color/PNG/96/Plants/broccoli-96.png" title="Broccoli" width="96">
-                <input type ="checkbox" ng-model="vegetables.Broccoli.value">Broccoli </input>
-                <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/corn-96.png" title="Corn" width="96">
-                <input type ="checkbox" ng-model="vegetables.BabyCorn.value">Baby Corn </input><br/>
-                <!--<input type ="checkbox" ng-model="vegetables.GreenBean.value">Green Beans </input>-->
+                <div id="cabbage" class="VeggieDivs" ng-click="pickVeggie('Cabbage')"><h2 class="ButtonTextLight">Cabbage</h2></div>
+                <div id="chillies" class="VeggieDivs" ng-click="pickVeggie('Chillis')"><h2 class="ButtonTextLight">Chillies</h2></div>
+                <div id="snowpeas" class="VeggieDivs" ng-click="pickVeggie('SnowPeas')"><h2 class="ButtonTextLight">Snow Peas</h2></div>
+                 <div id="onions" class="VeggieDivs" ng-click="pickVeggie('Onions')"><h2 class="ButtonTextLight">Onions</h2></div>
+                <div id="bokchoi" class="VeggieDivs" ng-click="pickVeggie('BokChoi')"><h2 class="ButtonTextLight">Bok Choi</h2></div>
+                <div id="redpeppers" class="VeggieDivs" ng-click="pickVeggie('RedPeppers')"><h2 class="ButtonTextLight">Red Peppers </h2></div>
+                <div id="brocolli" class="VeggieDivs" ng-click="pickVeggie('Broccoli')"><h2 class="ButtonTextLight">Broccoli</h2></div>
+                <div id="carrots" class="VeggieDivs" ng-click="pickVeggie('Carrots')"><h2 class="ButtonTextLight">Carrots</h2></div>
+                <div id="greenbeans" class="VeggieDivs" ng-click="pickVeggie('GreenBeans')"><h2 class="ButtonTextLight">Green Beans</h2></div>
+                <label> Selections: </label>
+                 <div ng-repeat="veg in vegetables">
+                     <label ng-if="veg.value == true"> {{veg.name}} </label>
+                </div>
                 <input type ="button"  ng-click="setVeggies()" value = "Submit"/>
             </div>
              <div ng-show ="Meat">
@@ -77,17 +65,51 @@
             </div>
              <div ng-show ="Review">
                  <h4> Review your recipe</h4>
-                 <label> Side: {{side}} </label><br/>
-                 <label> Meat: {{meat}} </label><br/>
-                 <label> Sauce: {{sauce}} </label><br/>
-                 <label> Vegetables: </label></br>
+                 <textarea readonly> Side: </textarea>
+                 <textarea readonly id="side" value="{{side}}">{{side}}</textarea><br/>
+                 <textarea readonly> Meat: </textarea>
+                 <textarea readonly id="meat" value="{{meat}}">{{meat}}</textarea><br/>
+                 <textarea readonly> Sauce: </textarea>
+                 <textarea readonly id="sauce" value="{{sauce}}">{{sauce}}</textarea><br/>
+                 <textarea readonly > Vegetables: </textarea>
                  <div ng-repeat="veg in vegetables">
-                     <label ng-if="veg.value == true"> {{veg.name}}</br> </label>
+                     <textarea readonly ng-if="veg.value == true"></textarea>
+                     <textarea readonly ng-if="veg.value == true" class="veg" value="{{veg.name}}">{{veg.name}}</textarea>
                 </div>
                 <input type ="button" ng-click="saveRecipe()" value = "Save Recipe"/>
+                <button type="submit" class="btn btn-primary" id = "submitRecipe">Submit</button>
                 <input type ="button" ng-click="searchRecipes()" value = "Search Similar Recipes using ingredients"/>
             </div>
+            <input type ="button" ng-click="goBack()" value = "Go Back"/>
         </div>
     </div>
+
+<script>
+    $(document).ready(function() {
+
+            $("#submitRecipe").click (function () {
+            $side = $("#side").val()
+            $meat = $("#meat").val()
+            $sauce = $("#sauce").val()
+            $veggies = $(".veg")
+            $veggieList = ""
+            for (i = 0; i < $veggies.length; i++) {
+                $veggieList += $veggies[i].textContent;
+                if(i < $veggies.length - 1) {
+                    $veggieList += ", ";
+                }
+            }
+
+            $.post("/save", {side: $side, meat: $meat, sauce: $sauce, veggies: $veggieList}).done(
+                    function(data,status) {
+                    console.log(status)
+                    console.log(data)
+                    
+            });
+            // that's a callback function!
+            });
+
+        }); // end of document ready function
+    </script>
 
 </html>

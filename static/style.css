@@ -1,3 +1,9 @@
+textarea {
+    border-style: none;
+    overflow: auto;
+    resize: none;
+}
+
 #recipe {
     margin: auto;
     margin-top : 35px;
