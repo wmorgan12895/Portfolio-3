@@ -13,14 +13,22 @@
 
         <div id = "Recipe" ng-controller ="RecipeController">
             <div ng-show ="Sides" id="sidesDiv">
-                <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/noodles-96.png" title="Noodles" width="96" ng-click="pickSide('Noodles')">
-                <h4>Noodles</h4>
-                <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/rice_bowl-96.png" title="Rice Bowl" width="96" ng-click="pickSide('Rice')">
-                <h4>Rice</h4>
+                <div id="noodles" ng-click="pickSide('Noodles')"><h1 class="ButtonTextLight">Noodles</h1></div>
+                <div id="rice" ng-click="pickSide('Rice')"> <h1 class="ButtonTextDark">Rice</h1></div>
             </div>
-             <div ng-show ="Veggies">
+             <div ng-show ="Veggies" id="sidesDiv">
                 <!--<input type ="checkbox" ng-model="vegetables.RedPeppers.value">Red Peppers </input><br/>-->
-                <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/carrot-96.png" title="Carrot" width="96">
+                
+                <div id="cabbage" class="VeggieDivs"><h2 class="ButtonTextLight">Cabbage</h2></div>
+                <div id="chillies" class="VeggieDivs"><h2 class="ButtonTextLight">Chillies</h2></div>
+                <div id="snowpeas" class="VeggieDivs"><h2 class="ButtonTextLight">Snow Peas</h2></div>
+                 <div id="onions" class="VeggieDivs"><h2 class="ButtonTextLight">Onions</h2></div>
+                <div id="bokchoi" class="VeggieDivs"><h2 class="ButtonTextLight">Bok Choi</h2></div>
+                <div id="redpeppers" class="VeggieDivs"><h2 class="ButtonTextLight">Red Peppers </h2></div>
+                <div id="brocolli" class="VeggieDivs"><h2 class="ButtonTextLight">Broccoli</h2></div>
+                <div id="carrots" class="VeggieDivs"><h2 class="ButtonTextLight">Carrots</h2></div>
+                <div id="greenbeans" class="VeggieDivs"><h2 class="ButtonTextLight">Green Beans</h2></div>
+                <!--<img src="https://maxcdn.icons8.com/Color/PNG/96/Food/carrot-96.png" title="Carrot" width="96">
                 <input type ="checkbox" ng-model="vegetables.Carrots.value">Carrots </input><br/>
                 <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/cabbage-96.png" title="Cabbage" width="96">
                 <input type ="checkbox" ng-model="vegetables.Cabbage.value">Cabbage </input>
@@ -31,7 +39,7 @@
                 <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/peas-96.png" title="Peas" width="96">
                 <input type ="checkbox" ng-model="vegetables.SnowPeas.value">Snow Peas</input><br/>
                 <!--<input type ="checkbox" ng-model="vegetables.BeanSprouts.value" >Bean Sprouts </input>-->
-                <!--<input type ="checkbox" ng-model="vegetables.BokChoi.value">Bok Choi </input><br/>-->
+                <!--<input type ="checkbox" ng-model="vegetables.BokChoi.value">Bok Choi </input><br/>
                 <img src="https://maxcdn.icons8.com/Color/PNG/96/Plants/broccoli-96.png" title="Broccoli" width="96">
                 <input type ="checkbox" ng-model="vegetables.Broccoli.value">Broccoli </input>
                 <img src="https://maxcdn.icons8.com/Color/PNG/96/Food/corn-96.png" title="Corn" width="96">
