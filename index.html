@@ -85,36 +85,6 @@
                  </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
 </body>
-<script>
-    $(document).ready(function() {
-
-            $("#submitRecipe").click (function () {
-            $side = $("#side").val()
-            $meat = $("#meat").val()
-            $sauce = $("#sauce").val()
-            $veggies = $(".veg")
-            $veggieList = ""
-            for (i = 0; i < $veggies.length; i++) {
-                $veggieList += $veggies[i].textContent;
-                if(i < $veggies.length - 1) {
-                    $veggieList += ", ";
-                }
-            }
-
-            $.post("/save", {side: $side, meat: $meat, sauce: $sauce, veggies: $veggieList}).done(
-                    function(data,status) {
-                    console.log(status)
-                    console.log(data)
-                    
-            });
-            // that's a callback function!
-            });
-
-        }); // end of document ready function
-    </script>
->>>>>>> bfdce1ecd3a8333552b79b408e605fef32cf7fad
 
 </html>
