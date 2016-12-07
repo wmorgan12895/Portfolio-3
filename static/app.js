@@ -6,6 +6,9 @@ app.controller('RecipeController', function($scope){
     $scope.Meat= false
     $scope.Sauce= false
     $scope.Review = false
+    $scope.Current = true
+    $scope.Info = false
+    $scope.ingredients= []
 
     $scope.vegetables = {
         RedPeppers: {name: "Red Peppers", value: false}, 
@@ -20,6 +23,28 @@ app.controller('RecipeController', function($scope){
         BabyCorn:{name: "Baby Corn", value: false},
         GreenBeans:{name: "Green Beans", value: false} 
 
+    }
+    $scope.showCurrent = function(name){
+        $scope.Current = true 
+        $scope.Info = false;
+    }
+
+    $scope.showInfo = function(name){
+        $scope.Current = false 
+        $scope.Info = true;
+        if(name==="Basic"){
+            $scope.ingredients = ["3 cloves garlic", "2 tbsp soy sauce", "1 tbsp rice vinegar", "1 Tbsp brown sugar", "1/2 cup water", "1 1/2 tbsp cornstarch"]
+        } else if(name==="Orange"){
+            $scope.ingredients = ["1 inch ginger", "3 tbsp soy sauce", "1 tbsp rice vinegar", "1/2 cup orange juice", "1 1/2 tbsp cornstarch"]
+        } else if(name==="Curry"){
+            $scope.ingredients = ["1 1/2 Tbsp curry paste", "1 1/2 Tbsp fish sauce", "2 tsp brown sugar", "1/2 cup water", "2 tbsp cornstarch"]
+        } else if(name==="Black"){
+            $scope.ingredients = ["1 tsp brown sugar", "3 tbsp soy sauce", "2 tsp rice vinegar", "1/2 cup water", "1 tbsp cornstarch"]
+        } else if(name==="Sweet"){
+            $scope.ingredients = ["2 tbsp ketchup", "1 tbsp soy sauce", "1 tbsp rice vinegar","1 Tbsp brown sugar", "2/3 cup water", "1 1/2 tbsp cornstarch"]
+        } else if(name==="Custom"){
+           
+        }
     }
 
     $scope.goBack = function(){

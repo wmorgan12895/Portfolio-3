@@ -4,19 +4,28 @@ textarea {
     resize: none;
 }
 
-#recipe {
+body{
+    background-image: url("http://wallpapercave.com/wp/PJ6Kv5d.jpg")
+}
+
+#mainArea{
     margin: auto;
-    margin-top : 35px;
-    border-color: black;
-    border-width: 3px;
-    border-style: solid;
+    height: 100%;
+    width: 80%;
+    background-image: url("http://hdwallpaperia.com/wp-content/uploads/2014/01/Cute-White-Wallpaper-Background-HD-Dekstop-1024x640.png");
     
 }
 
-#sidesDiv{
-    margin:auto;
-    width:50%;
+#recipe {
+   width: 70%;
+  float: left
 }
+
+.current {
+    width:25%;
+    float: right
+}
+
 
 #noodles {
     background-image: url("https://c2.staticflickr.com/8/7451/8941086988_c7d5ca6cd5_b.jpg");
@@ -24,6 +33,7 @@ textarea {
     height: 250px;
     background-size: cover;
     display: inline-block;
+    
 }
 
 #rice {
@@ -74,10 +84,64 @@ textarea {
 .VeggieDivs{
     width: 32%;
     height: 100px;
-    padding: 1px;
     display: inline-block;
     vertical-align: middle;
 }
+#chicken {
+    background-image: url("http://footage.framepool.com/shotimg/qf/340505178-chicken-breast-fillet-meat-cube-blurry-stir-fried.jpg");
+    background-size: cover;
+}
+#beef {
+    background-image: url("http://il3.picdn.net/shutterstock/videos/10563311/thumb/1.jpg");
+    background-size: cover;
+}
+#shrimp {
+    background-image: url("http://www.southwindfoods.com/img/upload/product-description-shrimp-tailoff.png");
+    background-size: cover;
+}
+#pork {
+    background-image: url("http://il6.picdn.net/shutterstock/videos/4514243/thumb/1.jpg");
+    background-size: cover;
+}
+#tofu {
+    background-image: url("http://wallpapersdsc.net/wp-content/uploads/2016/09/Tofu-HD-Desktop.jpg");
+    background-size: cover;
+}
+#nomeat {
+    background-image: url("http://il9.picdn.net/shutterstock/videos/2516246/thumb/1.jpg");
+    background-size: cover;
+}
+.MeatDivs{
+    width: 49%;
+    height: 150px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#basicsauce{
+    background-image: url("http://img.sndimg.com/food/image/upload/w_555,h_416,c_fit,fl_progressive,q_95/v1/img/recipes/87/74/8/pickc540c.jpg");
+    background-size: cover;
+}
+#orangesauce {
+    background-image: url("http://www.fortysomething.ca/wp-content/uploads/2010/04/orangechicken.jpg");
+    background-size: cover;
+}
+#sweetsoursauce {
+    background-image: url("http://nutritionanalyser.com/wp-content/uploads/2015/05/restaurant-chinese-sweet-and-sour-chicken-food.jpg");
+    background-size: cover;
+}
+#blackpeppersauce {
+    background-image: url("http://cdn.skinnyms.com/wp-content/uploads/2015/01/One-Pot-Black-Pepper-Chicken.jpg");
+    background-size: cover;
+}
+#currysauce {
+    background-image: url("http://johnnyprep.net/wp-content/uploads/2013/11/Thai-Red-Curry-Chicken-1024x651.jpg");
+    background-size: cover;
+}
+#customsauce {
+    background-image: url("https://glutenfreezen.files.wordpress.com/2011/02/dsc_0019.jpg");
+    background-size: cover;
+}
+
 
 .ButtonTextLight {
     color: White;

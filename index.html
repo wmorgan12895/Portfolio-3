@@ -7,12 +7,9 @@
         <script src="app.js"></script>
     </head>
     <h1>Stir Fryday</h1>
-
-    <div ng-app="StirFryApp" ng-controller="MainController">
-        
-        <!--<div ng-view=""/>-->
-
-        <div id = "Recipe" ng-controller ="RecipeController">
+    <body ng-app="StirFryApp">
+    <div id="mainarea"   ng-controller ="RecipeController">
+        <div id = "Recipe">
             <input type ="button" value="Create a new recipe" ng-click="newRecipe()"/>
             <div ng-show ="Sides" id="sidesDiv">
                 <div id="noodles" ng-click="pickSide('Noodles')"><h1 class="ButtonTextLight">Noodles</h1></div>
@@ -29,38 +26,27 @@
                 <div id="brocolli" class="VeggieDivs" ng-click="pickVeggie('Broccoli')"><h2 class="ButtonTextLight">Broccoli</h2></div>
                 <div id="carrots" class="VeggieDivs" ng-click="pickVeggie('Carrots')"><h2 class="ButtonTextLight">Carrots</h2></div>
                 <div id="greenbeans" class="VeggieDivs" ng-click="pickVeggie('GreenBeans')"><h2 class="ButtonTextLight">Green Beans</h2></div>
-                <label> Selections: </label>
+                <!--<label> Selections: </label>
                  <div ng-repeat="veg in vegetables">
                      <label ng-if="veg.value == true"> {{veg.name}} </label>
-                </div>
+                </div>-->
                 <input type ="button"  ng-click="setVeggies()" value = "Submit"/>
             </div>
              <div ng-show ="Meat">
-                <table id ="Meats">
-                <tr>
-                    <td><img src="https://maxcdn.icons8.com/Color/PNG/96/Animals/cow-96.png"  align="middle" ng-click="pickMeat('Beef')" title="Cow" width="120"></td>
-                    <td><img src="https://maxcdn.icons8.com/Color/PNG/96/Animals/chicken-96.png" align="middle" ng-click="pickMeat('Chicken')" title="Chicken" width="120"></td>
-                   <tr> <td><h4 align="middle">Beef</h4></td><td><h4 align="center">Chicken</h4></td> </tr>
-                 </tr>
-                 <tr>
-                   <td> <img src="https://maxcdn.icons8.com/Color/PNG/96/Animals/pig-96.png" align="middle" ng-click="pickMeat('Pork')" title="Pig" width="120"> </td>
-                    <td><img src="https://maxcdn.icons8.com/Color/PNG/96/Animals/prawn-96.png" align="middle" ng-click="pickMeat('Shrimp')" title="Prawn" width=""></td>
-                    <tr><td><h4 align="center">Pork</h4></td><td><h4 align="center">Shrimp</h4></td></tr>
-                </tr>
-                <tr>
-                    <td><img src="https://maxcdn.icons8.com/Color/PNG/96/Plants/soy-96.png" align="middle" ng-click="pickMeat('Tofu')" title="Soy" width="120"></td>
-                    <td><img src="https://maxcdn.icons8.com/Color/PNG/96/Food/vegan_food-96.png"  align="middle" ng-click="pickMeat('No Meat')" title="Vegan Food" width="120"></td>
-                   <tr> <td><h4 align="center">Tofu</h4></td> <td><h4 align="center">No Meat</h4></td> </tr>
-                </tr>
-                </table>
+                <div id="chicken" class="MeatDivs" ng-click="pickMeat('Chicken')"><h2 class="ButtonTextLight">Chicken</h2></div>
+                <div id="beef" class="MeatDivs" ng-click="pickMeat('Beef')"><h2 class="ButtonTextLight">Beef</h2></div>
+                <div id="pork" class="MeatDivs" ng-click="pickMeat('Pork')"><h2 class="ButtonTextLight">Pork</h2></div>
+                <div id="shrimp" class="MeatDivs" ng-click="pickMeat('Shrimp')"><h2 class="ButtonTextLight">Shrimp</h2></div>
+                <div id="tofu" class="MeatDivs" ng-click="pickMeat('Tofu')"><h2 class="ButtonTextLight">Tofu</h2></div>
+                <div id="nomeat" class="MeatDivs" ng-click="pickMeat('No Meat')"><h2 class="ButtonTextLight">No Meat</h2></div>
             </div>
             <div ng-show ="Sauce">
-                 <input type ="button" ng-click="pickSauce('Basic Sauce')" value = "Basic Stir Fry Sauce"/>
-                 <input type ="button" ng-click="pickSauce('Curry Sauce')" value = "Curry Sauce"/>
-                 <input type ="button" ng-click="pickSauce('Orange Ginger Sauce')" value = "Orange-Ginger Sauce"/>
-                 <input type ="button" ng-click="pickSauce('Black Pepper')" value = "Black Pepper Sauce"/>
-                 <input type ="button" ng-click="pickSauce('Sweet Sour')" value = "Sweet & Sour Sauce"/>
-                 <input type ="button" ng-click="customSauce()" value = "Custom Sauce"/>
+                <div id="basicsauce" class="MeatDivs" ng-click="pickSauce('Basic Sauce')" ng-mouseenter="showInfo('Basic')" data-ng-mouseleave="showCurrent()"><h2 class="ButtonTextLight">Basic Sauce</h2></div>
+                <div id="currysauce" class="MeatDivs" ng-click="pickSauce('Curry Sauce')" ng-mouseenter="showInfo('Curry')" data-ng-mouseleave="showCurrent()"><h2 class="ButtonTextLight">Curry Sauce</h2></div>
+                <div id="orangesauce" class="MeatDivs" ng-click="pickSauce('Orange Ginger Sauce')" ng-mouseenter="showInfo('Orange')" data-ng-mouseleave="showCurrent()"><h2 class="ButtonTextLight">Orange Ginger Sauce</h2></div>
+                <div id="blackpeppersauce" class="MeatDivs" ng-click="pickSauce('Black Pepper')" ng-mouseenter="showInfo('Black')" data-ng-mouseleave="showCurrent()"><h2 class="ButtonTextLight">Black Pepper Sauce</h2></div>
+                <div id="sweetsoursauce" class="MeatDivs" ng-click="pickSauce('Sweet Sour')" ng-mouseenter="showInfo('Sweet')" data-ng-mouseleave="showCurrent()"><h2 class="ButtonTextLight">Sweet and Sour Sauce</h2></div>
+                <div id="customSauce" class="MeatDivs" ng-click="customSauce()"><h2 class="ButtonTextLight">Custom Sauce</h2></div>
                  <input type ="button" ng-click="recommendSauce()" value = "Recommend a Sauce"/>
             </div>
              <div ng-show ="Review">
@@ -81,8 +67,25 @@
             </div>
             <input type ="button" ng-click="goBack()" value = "Go Back"/>
         </div>
+        <div class ="current" ng-show ="Current">
+                 <h4> Review your recipe</h4>
+                 <p> Side: {{side}} </[>
+                 <p> Meat: {{meat}} </p>
+                 <p> Sauce: {{sauce}}</p>
+                 <p> Vegetables:  </p> 
+                 <span ng-repeat="veg in vegetables">
+                     <p ng-if="veg.value == true"></p>
+                     <p ng-if="veg.value == true" class="veg" value="{{veg.name}}">{{veg.name}}</p>
+                </span> 
+        </div>
+        <div class ="current" ng-show ="Info">
+                 <h4> Sauce Ingredients</h4>
+                 <div ng-repeat="i in ingredients">
+                    <p>{{i}}<p>
+                 </div>
+        </div>
     </div>
-
+</body>
 <script>
     $(document).ready(function() {
 
