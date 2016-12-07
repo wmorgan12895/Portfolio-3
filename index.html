@@ -76,39 +76,11 @@
                      <textarea readonly ng-if="veg.value == true"></textarea>
                      <textarea readonly ng-if="veg.value == true" class="veg" value="{{veg.name}}">{{veg.name}}</textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" id = "submitRecipe">Save Recipe</button>
+                <input type ="button" ng-click="saveRecipe()" value="Save Recipe"/>
                 <input type ="button" ng-click="searchRecipes()" value = "Search Similar Recipes using ingredients"/>
             </div>
             <input type ="button" ng-click="goBack()" value = "Go Back"/>
         </div>
     </div>
-
-<script>
-    $(document).ready(function() {
-
-            $("#submitRecipe").click (function () {
-            $side = $("#side").val()
-            $meat = $("#meat").val()
-            $sauce = $("#sauce").val()
-            $veggies = $(".veg")
-            $veggieList = ""
-            for (i = 0; i < $veggies.length; i++) {
-                $veggieList += $veggies[i].textContent;
-                if(i < $veggies.length - 1) {
-                    $veggieList += ", ";
-                }
-            }
-
-            $.post("/save", {side: $side, meat: $meat, sauce: $sauce, veggies: $veggieList}).done(
-                    function(data,status) {
-                    console.log(status)
-                    console.log(data)
-                    
-            });
-            // that's a callback function!
-            });
-
-        }); // end of document ready function
-    </script>
 
 </html>

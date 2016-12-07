@@ -1,6 +1,6 @@
 var app = angular.module('StirFryApp',[])
 
-app.controller('RecipeController', function($scope){
+app.controller('RecipeController', function($scope, $http){
     $scope.Sides=true
     $scope.Veggies=false
     $scope.Meat= false
@@ -91,6 +91,27 @@ app.controller('RecipeController', function($scope){
         $scope.sauce = sauce
         $scope.Sauce = false
         $scope.Review = true
+    }
+
+    $scope.saveRecipe = function() {
+        var message = $.param({
+            side: $scope.side,
+            veggies: $scope.vegetables,
+            meat: $scope.meat,
+            sauce: $scope.sauce
+        });
+
+        $http({
+            url: '/save',
+            method: 'POST',
+            data:  message,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function(response) {
+            console.log("success")
+        },
+        function(response) {
+            console.log("failed")
+        })
     }
 
 })
