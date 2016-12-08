@@ -5,12 +5,19 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css"/>
         <script src="app.js"></script>
+        <title>Stir Fryday</title>
     </head>
+    <div id="outer" ng-controller="MainController">
     <h1>Stir Fryday</h1>
+    <input type="button" value="Logoff" ng-click="logoff()"/>
+    <input type="button" value="View My Recipes" ng-click="viewRecipes()"/>
+    </div>
     <body ng-app="StirFryApp">
     <div id="mainarea"   ng-controller ="RecipeController">
+
         <div id = "Recipe">
-            <input type ="button" value="Create a new recipe" ng-click="newRecipe()"/>
+            <input type ="button" value="Create a new recipe" ng-click="newRecipe()" class="button"/>
+            <input type ="button" ng-click="goBack()" value = "Go Back" class="button"/><br/>
             <div ng-show ="Sides" id="sidesDiv">
                 <div id="noodles" ng-click="pickSide('Noodles')"><h1 class="ButtonTextLight">Noodles</h1></div>
                 <div id="rice" ng-click="pickSide('Rice')"> <h1 class="ButtonTextDark">Rice</h1></div>
@@ -30,7 +37,7 @@
                  <div ng-repeat="veg in vegetables">
                      <label ng-if="veg.value == true"> {{veg.name}} </label>
                 </div>-->
-                <input type ="button"  ng-click="setVeggies()" value = "Submit"/>
+                <input type ="button"  ng-click="setVeggies()" value = "Submit" class="button" style="width: 98.6%"/>
             </div>
              <div ng-show ="Meat">
                 <div id="chicken" class="MeatDivs" ng-click="pickMeat('Chicken')"><h2 class="ButtonTextLight">Chicken</h2></div>
@@ -47,7 +54,7 @@
                 <div id="blackpeppersauce" class="MeatDivs" ng-click="pickSauce('Black Pepper')" ng-mouseenter="showInfo('Black')" data-ng-mouseleave="showCurrent()"><h2 class="ButtonTextLight">Black Pepper Sauce</h2></div>
                 <div id="sweetsoursauce" class="MeatDivs" ng-click="pickSauce('Sweet Sour')" ng-mouseenter="showInfo('Sweet')" data-ng-mouseleave="showCurrent()"><h2 class="ButtonTextLight">Sweet and Sour Sauce</h2></div>
                 <div id="customSauce" class="MeatDivs" ng-click="customSauce()"><h2 class="ButtonTextLight">Custom Sauce</h2></div>
-                 <input type ="button" ng-click="recommendSauce()" value = "Recommend a Sauce"/>
+                 <input type ="button" ng-click="recommendSauce()" value = "Recommend a Sauce" class="button" style="width: 98.6%"/>
             </div>
              <div ng-show ="Review">
                  <h4> Review your recipe</h4>
@@ -62,14 +69,13 @@
                      <textarea readonly ng-if="veg.value == true"></textarea>
                      <textarea readonly ng-if="veg.value == true" class="veg" value="{{veg.name}}">{{veg.name}}</textarea>
                 </div>
-                <input type ="button" ng-click="saveRecipe()" value="Save Recipe"/>
-                <input type ="button" ng-click="searchRecipes()" value = "Search Similar Recipes using ingredients"/>
+                <input type ="button" ng-click="saveRecipe()" value="Save Recipe" class="button"/>
+                <input type ="button" ng-click="searchRecipes()" value = "Search Similar Recipes using ingredients" class="button"/>
             </div>
-            <input type ="button" ng-click="goBack()" value = "Go Back"/>
         </div>
         <div class ="current" ng-show ="Current">
                  <h4> Review your recipe</h4>
-                 <p> Side: {{side}} </[>
+                 <p> Side: {{side}} </p>
                  <p> Meat: {{meat}} </p>
                  <p> Sauce: {{sauce}}</p>
                  <p> Vegetables:  </p> 

@@ -141,5 +141,16 @@ app.controller('RecipeController', function($scope, $http){
 
 })
 app.controller('MainController', function($scope){
-    
+
+    $scope.viewRecipes = function() {
+        window.location.replace("/viewRecipes")
+    }
+
+    $scope.logoff = function() {
+        window.location.replace("/")
+    }
+
+    $scope.newRecipe = function() {
+        window.location.replace("/index")
+    }
 })
