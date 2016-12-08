@@ -8,6 +8,7 @@ const bodyParser= require('body-parser')
 app.use(express.static('static'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
+app.set('view engine', 'ejs');
 
 app.post('/login', function(req, res) {
 db.collection('users').findOne({email: req.body['email']}, function(err, document){
@@ -36,11 +37,24 @@ db.collection('users').findOne({email: req.body['email']}, function(err, documen
 })
 
 app.get('/', (req, res) => {
+  res.cookie('email', '')
   res.sendFile(__dirname + '/login.html')
 })
 
 app.get('/index', (req, res) => {
   res.sendFile(__dirname + '/index.html')
+})
+
+app.get('/viewRecipes', (req, res) => {
+  req.body['email'] = req.cookies['email'];
+  if(req.cookies['email']!=""){
+    db.collection('recipes').find({email: req.body['email']}).toArray(function(err, results) {
+      if (err) return console.log(err);
+      else {
+        res.render('viewRecipes.ejs', {recipes: results});
+      }
+    })
+  }
 })
 
 app.post('/save', function(req, res) {

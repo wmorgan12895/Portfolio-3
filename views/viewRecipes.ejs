@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="app.js"></script>
+    <meta charset="UTF-8">
+    <title>Stir Fryday</title>
+ 
+</head>
+<div id="outer" ng-controller="MainController">
+    <h1>Stir Fryday</h1>
+    <input type="button" value="Logoff" ng-click="logoff()"/>
+    <input type="button" value="Create a new Recipe" ng-click="newRecipe()"/>
+    </div>
+<body ng-app="StirFryApp">
+  <div id= "mainArea" class="ng-scope">
+    <h2>My Recipes</h4>
+    <br>
+    <ul class="recipes">
+    <% for(var i=0; i<recipes.length; i++) {%>
+    <span><%= 'Recipe ' + (i + 1)%></span>
+      <li class="side">
+        <span><%= recipes[i].side %></span>
+      </li>
+      <li class="meat">
+        <span><%= recipes[i].veggies.RedPeppers.name %></span>
+      </li>
+        <% var sortedKeys = Object.keys(recipes[i].veggies).sort(); %>
+        <% for(var j=0; j<sortedKeys.length; j++) {%>
+        <% if(recipes[i].veggies[sortedKeys[j]].value == "true") {%>
+            <li class="veggies">
+                <span><%= recipes[i].veggies[sortedKeys[j]].name %></span>
+            </li>
+        <% }} %>
+      <li class="sauce">
+        <span><%= recipes[i].sauce %></span>
+      </li>
+      <br/>
+    <% } %>
+    </ul>
+</div>
+</body>
+</html>
