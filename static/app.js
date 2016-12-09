@@ -139,6 +139,78 @@ app.controller('RecipeController', function($scope, $http){
         })
     }
 
+    $scope.recommendSauce = function() {
+        var message = $.param({
+            side: $scope.side,
+            veggies: $scope.vegetables,
+            meat: $scope.meat,
+        });
+
+        $http({
+            url: '/recommend',
+            method: 'GET',
+            data:  message,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function(response) {
+            console.log(response.data.recipes)
+            var r = response.data.recipes;
+            var num = numVeggies()
+            $scope.sauce = recommend(r, num)
+            $scope.Sauce = false
+            $scope.Review = true
+        },
+        function(response) {
+            console.log("failed")
+        })
+    }
+
+    function numVeggies() {
+        var num = 0;
+        var sortedKeys = Object.keys($scope.vegetables).sort()
+        for(var j=0; j<sortedKeys.length; j++) {
+            if($scope.vegetables[sortedKeys[j]].value == true) {
+                num = num + 1;
+            }
+        }
+       
+        return num;
+    }
+
+    function recommend(r, num) {
+        var recommendation = "Basic Sauce";
+        var percentage = 0;
+        var sortedKeys = Object.keys($scope.vegetables).sort()
+        var numVeggies = 0;
+        for (i = 0; i < r.length; i++) { 
+            var recipe = r[i];
+            var sortedVeg = Object.keys(recipe.veggies).sort()
+            var matches = 0;
+            if(recipe.meat == $scope.meat) {
+                matches += 1;
+            }
+            if(recipe.side == $scope.side) {
+                matches += 1;
+            }
+            for (j = 0; j < sortedVeg.length; j++) {
+                if(recipe.veggies[sortedVeg[j]].value == "true") {
+                    numVeggies += 1;
+                    if ($scope.vegetables[sortedKeys[j]].value == true) {
+                        matches += 1;
+                    }
+                }
+            }
+            if(num > numVeggies) {
+                numVeggies = num;
+            }
+            newPercent = matches / (numVeggies + 2);
+            if(newPercent > percentage) {
+                percentage = newPercent;
+                recommendation = recipe.sauce;
+            }
+        }
+        return recommendation;
+    }
+
 })
 app.controller('MainController', function($scope){
 
