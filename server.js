@@ -66,6 +66,16 @@ app.post('/save', function(req, res) {
   })
 })
 
+app.get('/recommend', (req, res) => {
+  db.collection('recipes').find().toArray(function(err, results) {
+    if (err) return console.log(err);
+    else {
+      res.send({recipes: results});
+    }
+  })
+  
+})
+
 var db;
 MongoClient.connect('mongodb://se319:password@ds119718.mlab.com:19718/se319', function(err, database) {
   if (err) return console.log(err)
