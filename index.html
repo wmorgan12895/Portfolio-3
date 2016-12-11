@@ -14,7 +14,6 @@
     </div>
     <body ng-app="StirFryApp">
     <div id="mainarea"   ng-controller ="RecipeController">
-
         <div id = "Recipe">
             <input type ="button" value="Create a new recipe" ng-click="newRecipe()" class="button"/>
             <input type ="button" ng-click="goBack()" value = "Go Back" class="button"/><br/>
@@ -23,7 +22,6 @@
                 <div id="rice" ng-click="pickSide('Rice')"> <h1 class="ButtonTextDark">Rice</h1></div>
             </div>
              <div ng-show ="Veggies" id="veggiesDiv">
-                
                 <div id="cabbage" class="VeggieDivs" ng-click="pickVeggie('Cabbage')"><h2 class="ButtonTextLight">Cabbage</h2></div>
                 <div id="chillies" class="VeggieDivs" ng-click="pickVeggie('Chillis')"><h2 class="ButtonTextLight">Chillies</h2></div>
                 <div id="snowpeas" class="VeggieDivs" ng-click="pickVeggie('SnowPeas')"><h2 class="ButtonTextLight">Snow Peas</h2></div>
@@ -33,10 +31,6 @@
                 <div id="brocolli" class="VeggieDivs" ng-click="pickVeggie('Broccoli')"><h2 class="ButtonTextLight">Broccoli</h2></div>
                 <div id="carrots" class="VeggieDivs" ng-click="pickVeggie('Carrots')"><h2 class="ButtonTextLight">Carrots</h2></div>
                 <div id="greenbeans" class="VeggieDivs" ng-click="pickVeggie('GreenBeans')"><h2 class="ButtonTextLight">Green Beans</h2></div>
-                <!--<label> Selections: </label>
-                 <div ng-repeat="veg in vegetables">
-                     <label ng-if="veg.value == true"> {{veg.name}} </label>
-                </div>-->
                 <input type ="button"  ng-click="setVeggies()" value = "Submit" class="button" style="width: 98.6%"/>
             </div>
              <div ng-show ="Meat">
@@ -53,7 +47,6 @@
                 <div id="orangesauce" class="MeatDivs" ng-click="pickSauce('Orange Ginger Sauce')" ng-mouseenter="showInfo('Orange')" data-ng-mouseleave="showCurrent()"><h2 class="ButtonTextLight">Orange Ginger Sauce</h2></div>
                 <div id="blackpeppersauce" class="MeatDivs" ng-click="pickSauce('Black Pepper Sauce')" ng-mouseenter="showInfo('Black')" data-ng-mouseleave="showCurrent()"><h2 class="ButtonTextLight">Black Pepper Sauce</h2></div>
                 <div id="sweetsoursauce" class="MeatDivs" ng-click="pickSauce('Sweet Sour Sauce')" ng-mouseenter="showInfo('Sweet')" data-ng-mouseleave="showCurrent()"><h2 class="ButtonTextLight">Sweet and Sour Sauce</h2></div>
-                <div id="customSauce" class="MeatDivs" ng-click="customSauce()"><h2 class="ButtonTextLight">Custom Sauce</h2></div>
                  <input type ="button" ng-click="recommendSauce()" value = "Recommend a Sauce" class="button" style="width: 98.6%"/>
             </div>
              <div ng-show ="Review">
@@ -70,7 +63,6 @@
                      <textarea readonly ng-if="veg.value == true" class="veg" value="{{veg.name}}">{{veg.name}}</textarea>
                 </div>
                 <input type ="button" ng-click="saveRecipe()" value="Save Recipe" class="button"/>
-                <input type ="button" ng-click="searchRecipes()" value = "Search Similar Recipes using ingredients" class="button"/>
             </div>
         </div>
         <div class ="current" ng-show ="Current">
@@ -90,6 +82,7 @@
                     <p>{{i}}<p>
                  </div>
         </div>
+        <div ng-show="Blank"></div>
     </div>
 </body>
 

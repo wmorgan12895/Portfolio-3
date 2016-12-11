@@ -12,7 +12,7 @@ body{
     margin: auto;
     height: 100%;
     width: 80%;
-    background-image: url("http://hdwallpaperia.com/wp-content/uploads/2014/01/Cute-White-Wallpaper-Background-HD-Dekstop-1024x640.png");
+    background-color: white;
     
 }
 
@@ -135,10 +135,6 @@ body{
 }
 #currysauce {
     background-image: url("http://johnnyprep.net/wp-content/uploads/2013/11/Thai-Red-Curry-Chicken-1024x651.jpg");
-    background-size: cover;
-}
-#customsauce {
-    background-image: url("https://glutenfreezen.files.wordpress.com/2011/02/dsc_0019.jpg");
     background-size: cover;
 }
 

@@ -8,6 +8,7 @@ app.controller('RecipeController', function($scope, $http){
     $scope.Review = false
     $scope.Current = true
     $scope.Info = false
+    $scope.Blank = false
     $scope.ingredients= []
 
     $scope.vegetables = {
@@ -42,8 +43,6 @@ app.controller('RecipeController', function($scope, $http){
             $scope.ingredients = ["1 tsp brown sugar", "3 tbsp soy sauce", "2 tsp rice vinegar", "1/2 cup water", "1 tbsp cornstarch"]
         } else if(name==="Sweet"){
             $scope.ingredients = ["2 tbsp ketchup", "1 tbsp soy sauce", "1 tbsp rice vinegar","1 Tbsp brown sugar", "2/3 cup water", "1 1/2 tbsp cornstarch"]
-        } else if(name==="Custom"){
-           
         }
     }
 
@@ -78,7 +77,9 @@ app.controller('RecipeController', function($scope, $http){
         $scope.vegetables['Broccoli'].value = false;
         $scope.vegetables['BabyCorn'].value = false;
         $scope.vegetables['GreenBeans'].value = false;
-
+        $scope.meat = ""
+        $scope.side=""
+        $scope.sauce=""
         $scope.Sides=true
         $scope.Veggies=false
         $scope.Meat= false
@@ -116,9 +117,14 @@ app.controller('RecipeController', function($scope, $http){
         $scope.sauce = sauce
         $scope.Sauce = false
         $scope.Review = true
+        $scope.Current = false 
+        $scope.Blank = true
+         
     }
 
     $scope.saveRecipe = function() {
+        $scope.Review = false
+        $scope.Side = false
         var message = $.param({
             side: $scope.side,
             veggies: $scope.vegetables,
